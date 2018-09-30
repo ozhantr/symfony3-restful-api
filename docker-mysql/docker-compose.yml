@@ -1,0 +1,30 @@
+version: "3.3"
+services:
+
+    mysql:
+      image: mysql:5.7
+      restart: always
+      container_name: restful-api-mysql
+      volumes:
+       - ./db_data:/var/lib/mysql
+      command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+      environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      ports:
+        - "3306:3306"
+
+
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      container_name: restful-api-phpmyadmin
+      links:
+        - mysql:mysql
+      ports:
+        - 8080:80
+      environment:
+        MYSQL_USERNAME: root
+        MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+        PMA_HOST: mysql

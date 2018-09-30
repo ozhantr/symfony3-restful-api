@@ -1,0 +1,17 @@
+location:
+    type: rest
+    resource: AppBundle\Controller\LocationController
+
+service:
+    type: rest
+    resource: AppBundle\Controller\ServiceController
+
+job:
+    type: rest
+    resource: AppBundle\Controller\JobController
+
+
+app.swagger_ui:
+    resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
+    prefix:   /api/doc
+
