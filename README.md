@@ -41,4 +41,4 @@ MySQL
 
 `Collate:` utf8mb4_unicode_ci
 
-`phpMyAdmin:` http://localhost:8080
+`phpMyAdmin:` http://127.0.0.1:8080
